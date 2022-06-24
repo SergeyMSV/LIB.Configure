@@ -1,0 +1,19 @@
+{
+  "hostname": "mxXbull",
+  "email": {
+    "user": "medved",
+    "password": "PrevedMedved!!",
+    "host": "smtp.gmail.com",
+    "port": "587",
+    "from": "medved@gmail.com",
+    "tls": true,
+    "auth": true
+  },
+  "emailsender": {
+    "period": 3600
+  },
+  "outFiles": {
+    "msmtprc": "/root/.msmtprc",
+    "muttrc": "/root/.muttrc"
+  }
+}
