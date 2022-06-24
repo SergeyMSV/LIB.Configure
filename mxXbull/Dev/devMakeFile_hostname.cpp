@@ -10,7 +10,7 @@ namespace dev
 
 void MakeFile_hostname(const std::string& a_hostname)
 {
-	std::fstream File("/etc/hostname", std::ios::out);
+	std::fstream File(GetPath("etc/hostname"), std::ios::out);
 	if (File.good())
 	{
 		File << a_hostname;

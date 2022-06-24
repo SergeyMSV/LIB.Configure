@@ -45,4 +45,6 @@ public:
 	tEmailSender GetEmailSender() const { return m_EmailSender; }
 };
 
+std::string GetPath(const std::string& a_dir);
+
 }

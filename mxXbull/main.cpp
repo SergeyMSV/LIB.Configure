@@ -15,14 +15,6 @@ void MakeFile_muttrc(const std::string& a_hostname, const tEmail& a_email);
 
 }
 
-std::string GetPath(const std::string& a_dir, bool a_testPath)
-{
-	if (a_testPath)
-		return "/" + a_dir;
-
-	return "testfs/" + a_dir;
-}
-
 int main(int argc, char* argv[])
 {
 	if (argc != 2)

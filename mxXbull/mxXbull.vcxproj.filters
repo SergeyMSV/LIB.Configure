@@ -9,9 +9,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="etc">
-      <UniqueIdentifier>{9c0da28f-e2fa-488a-b265-826f466a7bf3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Dev">
       <UniqueIdentifier>{791890f4-242d-4c51-ad0b-b33f611c9cf8}</UniqueIdentifier>
     </Filter>
@@ -45,8 +42,5 @@
       <Filter>LIB.Utils</Filter>
     </None>
     <None Include="settings.json" />
-    <None Include="etc\hostname">
-      <Filter>etc</Filter>
-    </None>
   </ItemGroup>
 </Project>

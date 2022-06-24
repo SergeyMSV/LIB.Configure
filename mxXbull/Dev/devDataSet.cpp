@@ -29,4 +29,13 @@ tDataSetConfig::tDataSetConfig(const std::string& a_fileName)
 	m_EmailSender = tEmailSender(m_PTree);
 }
 
+std::string GetPath(const std::string& a_dir)
+{
+	//#ifdef OS_WINDOWS
+		//return "/" + a_dir;
+	//#else
+	return "testfs/" + a_dir;
+	//#endif
+}
+
 }
