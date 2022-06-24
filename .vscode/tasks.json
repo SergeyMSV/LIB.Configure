@@ -1,0 +1,52 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: cpp build active file",
+            "command": "/usr/bin/arm-linux-gnueabihf-g++-10",
+            "args": [
+				"-std=c++2a",
+                "-g",
+				"-Wall",
+				"-I${workspaceFolder}/mxXbull",
+				"-I${workspaceFolder}/mxXbull/Dev",
+				"-I${workspaceFolder}/LIB.Utils",
+				"-I/usr/local/boost_1_77_0_ARM",
+				"-L/usr/local/boost_1_77_0_ARM/stage/lib",
+				"-L/usr/arm-linux-gnueabihf/lib",
+				"mxXbull/Dev/devDataSet.cpp",
+				"mxXbull/Dev/devMakeFile_hostname.cpp",
+				"mxXbull/Dev/devMakeFile_msmtprc.cpp",
+				"mxXbull/Dev/devMakeFile_muttrc.cpp",
+				"mxXbull/main.cpp",
+                "-o",
+                "${workspaceFolder}/configurer",
+				"-lpthread",
+				"-lboost_filesystem"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+			"dependsOn":[
+				"ConfigCopy"
+			]
+        },
+		{
+			"label": "ConfigCopy",
+			"command": "cp",
+			"args": [
+				"-f",
+				"mxXbull/settings.json",
+				"."
+			]
+		}
+    ]
+}
