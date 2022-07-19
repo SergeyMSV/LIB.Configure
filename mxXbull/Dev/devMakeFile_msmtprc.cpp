@@ -8,9 +8,9 @@
 namespace dev
 {
 
-void MakeFile_msmtprc(const tEmail& a_email)
+void MakeFile_msmtprc(const std::string& a_path, const tEmail& a_email)
 {
-	std::fstream File("msmtprc", std::ios::out);
+	std::fstream File(a_path, std::ios::out);
 	if (File.good())
 	{
 		File << "# Set default values for all following accounts.\n";

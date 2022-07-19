@@ -18,7 +18,19 @@ tEmail::tEmail(boost::property_tree::ptree a_PTree)
 
 tEmailSender::tEmailSender(boost::property_tree::ptree a_PTree)
 {
+	MailTo = a_PTree.get<std::string>("emailsender.mail_to");
 	Period = a_PTree.get<uint32_t>("emailsender.period");
+}
+
+tConfigFiles::tConfigFiles(boost::property_tree::ptree a_PTree)
+{
+	msmtprc = a_PTree.get<std::string>("config_files.msmtprc");
+	muttrc = a_PTree.get<std::string>("config_files.muttrc");
+
+#if defined(_WIN32)
+	msmtprc = SetWinTestPath(msmtprc);
+	muttrc = SetWinTestPath(muttrc);
+#endif
 }
 
 tDataSetConfig::tDataSetConfig(const std::string& a_fileName)
@@ -27,15 +39,19 @@ tDataSetConfig::tDataSetConfig(const std::string& a_fileName)
 	m_HostName = m_PTree.get<std::string>("hostname");
 	m_Email = tEmail(m_PTree);
 	m_EmailSender = tEmailSender(m_PTree);
+
+	m_ConfigFiles = tConfigFiles(m_PTree);
 }
 
-std::string GetPath(const std::string& a_dir)
+#if defined(_WIN32)
+std::string SetWinTestPath(const std::string& a_dir)
 {
-	//#ifdef OS_WINDOWS
-		//return "/" + a_dir;
-	//#else
-	return "testfs/" + a_dir;
-	//#endif
+	std::string Path = "test_root_fs";
+	if (a_dir.size() > 0 && a_dir[0] != '/')
+		Path += "/";
+	Path += a_dir;
+	return Path;
 }
+#endif
 
 }

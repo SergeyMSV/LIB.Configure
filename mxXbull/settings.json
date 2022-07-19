@@ -10,9 +10,10 @@
     "auth": true
   },
   "emailsender": {
+    "mail_to": "preved@gmail.com",
     "period": 3600
   },
-  "outFiles": {
+  "config_files": {
     "msmtprc": "/root/.msmtprc",
     "muttrc": "/root/.muttrc"
   }

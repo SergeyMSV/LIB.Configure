@@ -8,9 +8,9 @@
 namespace dev
 {
 
-void MakeFile_muttrc(const std::string& a_hostname, const tEmail& a_email)
+void MakeFile_muttrc(const std::string& a_path, const std::string& a_hostname, const tEmail& a_email)
 {
-	std::fstream File("muttrc", std::ios::out);
+	std::fstream File(a_path, std::ios::out);
 	if (File.good())
 	{
 		File << "set sendmail=\"/usr/bin/msmtp\"\n";

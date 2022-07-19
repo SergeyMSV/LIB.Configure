@@ -23,10 +23,20 @@ struct tEmail
 
 struct tEmailSender
 {
+	std::string MailTo;
 	uint32_t Period = 0; //in seconds
 
 	tEmailSender() = default;
 	explicit tEmailSender(boost::property_tree::ptree a_PTree);
+};
+
+struct tConfigFiles
+{
+	std::string msmtprc;
+	std::string muttrc;
+
+	tConfigFiles() = default;
+	explicit tConfigFiles(boost::property_tree::ptree a_PTree);
 };
 
 class tDataSetConfig
@@ -34,6 +44,8 @@ class tDataSetConfig
 	std::string m_HostName;
 	tEmail m_Email;
 	tEmailSender m_EmailSender;
+
+	tConfigFiles m_ConfigFiles;
 
 	boost::property_tree::ptree m_PTree;
 
@@ -43,8 +55,11 @@ public:
 	std::string GetHostName() { return m_HostName; }
 	tEmail GetEmail() const { return m_Email; }
 	tEmailSender GetEmailSender() const { return m_EmailSender; }
+	tConfigFiles GetConfigFiles() const { return m_ConfigFiles; }
 };
 
-std::string GetPath(const std::string& a_dir);
+#if defined(_WIN32)
+std::string SetWinTestPath(const std::string& a_dir);
+#endif
 
 }
